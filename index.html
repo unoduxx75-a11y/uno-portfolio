@@ -3,49 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uno - CS Student & Developer Portfolio</title>
+    <title>Uno (unoduxx75-a11y) - Software Developer & Portfolio</title>
+    <meta name="description" content="Official portfolio of Uno (unoduxx75-a11y). Creator of Auto Font Installer Pro, Nero EXE, Uno Music App, and custom desktop utility applications.">
+    <meta name="keywords" content="unoduxx75-a11y, Uno developer, Font Installer Pro, Nero EXE, Uno Music App, GitHub software, Windows desktop apps">
     <meta name="google-site-verification" content="iaKm1FPyuJ_xiQI29O2od4iknla7TQD02U3ncrYmiuw" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        body {
-            background-color: #0f1015;
-            color: #e0e2ec;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --bg-color: #0c0d12;
+            --card-bg: rgba(23, 25, 35, 0.85);
+            --card-border: #272a3d;
+            --primary: #ff758c;
+            --accent: #ff7eb3;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --discord: #5865F2;
+            --github: #24292e;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            padding: 40px 20px;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(255, 117, 140, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(88, 101, 242, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
         }
-        .container {
-            max-width: 600px;
+
+        .portfolio-wrapper {
+            max-width: 850px;
             width: 100%;
-            background: #181924;
-            border: 1px solid #2d3042;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
         }
-        h1 { color: #ff758c; margin-top: 0; }
-        p { color: #9ca3af; line-height: 1.6; }
-        .btn {
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            margin-bottom: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 28px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            box-shadow: 0 8px 25px rgba(255, 117, 140, 0.3);
+        }
+
+        .header-info h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 30%, var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .header-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .username-badge {
             display: inline-block;
-            background: #5865F2;
-            color: #fff;
-            padding: 10px 20px;
+            background: rgba(255, 117, 140, 0.12);
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            padding: 4px 10px;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
+            border: 1px solid rgba(255, 117, 140, 0.2);
+            margin-top: 8px;
         }
-        .btn-gh { background: #24292e; margin-left: 10px; border: 1px solid #444c56; }
+
+        .bio-section {
+            margin-bottom: 36px;
+            line-height: 1.7;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .project-card {
+            background: rgba(15, 16, 21, 0.7);
+            border: 1px solid #26293a;
+            border-radius: 16px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .btn-discord {
+            background: var(--discord);
+            color: #ffffff;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .btn-discord:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
+        }
+
+        .btn-github {
+            background: var(--github);
+            color: #ffffff;
+            border: 1px solid #3e4451;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-github:hover {
+            background: #2f363d;
+            border-color: #606879;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-wrapper { padding: 24px; }
+            .profile-header { flex-direction: column; text-align: center; }
+            .social-links { justify-content: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Hi there, I'm Uno! 👋</h1>
-        <p>I am a Computer Science student who loves to code, build helpful software, and share my workable products with the world.</p>
-        <p>Check out my desktop software apps, tools, and releases on GitHub.</p>
-        <a href="https://discord.gg/vuhVcsA7R" class="btn">Join Discord</a>
-        <a href="https://github.com/unoduxx75-a11y?tab=repositories" class="btn btn-gh">View GitHub Profile</a>
+
+    <div class="portfolio-wrapper">
+        <!-- HEADER PROFILE -->
+        <div class="profile-header">
+            <div class="avatar">👨‍💻</div>
+            <div class="header-info">
+                <h1>Hi there, I'm Uno! 👋</h1>
+                <p>Computer Science Student & Desktop Software Developer</p>
+                <div class="username-badge">@unoduxx75-a11y</div>
+            </div>
+        </div>
+
+        <!-- BIO -->
+        <div class="bio-section">
+            I build useful desktop utility tools, executable packages, custom Windows software, and mobile apps. All of my software projects, source code, and release binaries are available on GitHub!
+        </div>
+
+        <!-- FEATURED PROJECTS -->
+        <div class="section-title">🚀 Featured Projects & Apps</div>
+        <div class="projects-grid">
+            <a href="https://github.com/unoduxx75-a11y/auto-font-installer-pro" target="_blank" class="project-card">
+                <div class="project-icon">📦</div>
+                <div class="project-title">Font Installer Pro</div>
+                <div class="project-desc">Automated multi-ZIP Windows font installer & auto-detect manager built with PyQt6.</div>
+            </a>
+
+            <a href="https://github.com/unoduxx75-a11y/nero2.5.0-exe-" target="_blank" class="project-card">
+                <div class="project-icon">⚡</div>
+                <div class="project-title">Nero EXE</div>
+                <div class="project-desc">Custom desktop executable tools & utility releases.</div>
+            </a>
+
+            <a href="https://github.com/unoduxx75-a11y/uno-music-" target="_blank" class="project-card">
+                <div class="project-icon">🎵</div>
+                <div class="project-title">Uno Music App</div>
+                <div class="project-desc">Official APK releases for mobile music streaming & player app.</div>
+            </a>
+        </div>
+
+        <!-- CONNECT & LINKS -->
+        <div class="section-title">🌐 Connect With Me</div>
+        <div class="social-links">
+            <a href="https://discord.gg/vuhVcsA7R" target="_blank" class="btn btn-discord">
+                💬 Join Discord Server
+            </a>
+            <a href="https://github.com/unoduxx75-a11y?tab=repositories" target="_blank" class="btn btn-github">
+                🐙 View GitHub Profile
+            </a>
+        </div>
     </div>
+
 </body>
 </html>
